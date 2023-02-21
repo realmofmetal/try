@@ -26,7 +26,7 @@ $.each($("a[name]"), function(i, e) {
 // Find all external links and add attributes
 const links=document.querySelectorAll("a");
 links.forEach(link => {
-  if (link.hostname !== window.location.hostname && !link.href.startsWith("javascript:") && !link.href.includes("blogger.com") && !link.href.includes("googleusercontent.com") && !link.href.includes("blogspot.com") && !link.classList.contains("header-button")) {
+  if (link.hostname !== window.location.hostname && !link.href.startsWith("javascript:") && !link.href.includes("blogger.com") && !link.href.includes("googleusercontent.com") && !link.href.includes("blogspot.com") && !link.classList.contains("header-button") && !link.classList.contains("comment-reply") && !link.classList.contains("clickfunc")) {
     link.setAttribute("target", "_blank");
     link.setAttribute("rel", "nofollow");
 	link.setAttribute("href", "http://anonymto.com/#" + link.href);
