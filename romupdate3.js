@@ -43,42 +43,40 @@ const link = image.parentNode.href;
 const newElement = `<div class="imgbelow" style="font-size:12px"><table class="postimgaddons" style="width:100%"><tbody><tr><td><span style="float:left;line-height: 1.8em;font-size:12px;">Rate this release:</span><div class="realm-rating-true"/></td><td style="float:right"><a href="${link}" target="_blank" rel="nofollow"><span class="genre-filters"><i class="fa fa-arrow-down" aria-hidden="true"></i> MP3 DOWNLOAD</span></a> <a href="#comments"><span class="genre-filters"><i class="fa fa-times" aria-hidden="true"></i> DEAD LINK</span></a> <span style="color:red;font-size:8px">NEW</span></td></tr></tbody></table><div class="clear"/></div>`;
 separator.insertAdjacentHTML('afterend', newElement);};
 
-// Remove rows with no links
 window.onload = function() {
-// Select the table on #tab-0-2 .inner table.releaseinfo
-const tTable = document.querySelector('#tab-0-2 .inner table.releaseinfo');
+  // Select the table on #tab-0-2 .inner table.releaseinfo
+  const tTable = document.querySelector('#tab-0-2 .inner table.releaseinfo');
 
-// Select all rows in the table except the first (header) row
-const tRows = tTable.querySelectorAll('tr:not(:first-child)');
+  // Select all rows in the table except the first (header) row
+  const tRows = tTable.querySelectorAll('tr:not(:first-child)');
 
-// Loop through each row and check if there is an href link in any td cell
-for (let i = 0; i < tRows.length; i++) {
-  const tCells = tRows[i].querySelectorAll('td');
-  let hasLink = false;
-  for (let j = 0; j < tCells.length; j++) {
-    if (tCells[j].querySelector('a[href]')) {
-      hasLink = true;
-      break;
+  // Loop through each row and check if there is an href link in any td cell
+  for (let i = 0; i < tRows.length; i++) {
+    const tCells = tRows[i].querySelectorAll('td');
+    let hasLink = false;
+    for (let j = 0; j < tCells.length; j++) {
+      if (tCells[j].querySelector('a[href]')) {
+        hasLink = true;
+        break;
+      }
+    }
+    // If there is no href link, delete the row
+    if (!hasLink) {
+      tRows[i].parentNode.removeChild(tRows[i]);
     }
   }
-  // If there is no href link, delete the row
-  if (!hasLink) {
-    tRows[i].parentNode.removeChild(tRows[i]);
-  }
-}
+
+  // Replace download links for uppercase domain names and add network links on olders posts
+  const dLinks = document.querySelectorAll('#tab-0-2 .inner a');
+  dLinks.forEach(function(dLink) {
+    const dUrlanony = new URL(dLink.href.replace("http://anonymto.com/#", ""));
+    let dDomain = dUrlanony.hostname;
+    const dDomainParts = dDomain.split(".");
+    dDomain = dDomainParts[dDomainParts.length - 2].toUpperCase();
+    dLink.innerHTML = dDomain + dLink.innerHTML;
+  });
 };
 
-
-// Replace download links for uppercase domain names and add network links on olders posts
-window.onload = function() {
-const dLinks = document.querySelectorAll('#tab-0-2 .inner a');
-dLinks.forEach(function(dLink) {
-  const dUrlanony = new URL(dLink.href.replace("http://anonymto.com/#", ""));
-  let dDomain = dUrlanony.hostname;
-  const dDomainParts = dDomain.split(".");
-  dDomain = dDomainParts[dDomainParts.length - 2].toUpperCase();
-  dLink.innerHTML = dDomain + dLink.innerHTML;
-});
 
 if (!window.location.href.includes("/p/") && 
     !window.location.href.includes("/2023/02/") && 
