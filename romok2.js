@@ -23,6 +23,12 @@ $.each($("a[name]"), function(i, e) {
    });
 });
 
+// Run before all other link scripts
+if (!window.location.href.includes("/p/") && 
+    !window.location.href.includes("/2023/02/") && 
+    window.location.href !=="https://wow.realmofmetal.org/"){var _1bit=new _1bitspace({public_key:"hAvVrB9-",only:["mega.nz","mediafire.com","yadi.sk","zippyshare.com","rgho.st","workupload.com","dl.realmofmetal.org","dwld.realmofmetal.org","cloud.mail.ru"]})}
+};
+
 // Find all external links and add attributes
 const links=document.querySelectorAll("a");
 links.forEach(link => {
