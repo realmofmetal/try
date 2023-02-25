@@ -45,7 +45,7 @@ if (!window.location.href.includes("/p/") &&
 const separator = document.querySelector('.separator');
 const image = separator.querySelector('img');
 const link = image.parentNode.href;
-const newElement = `<div class="imgbelow" style="font-size:12px"><table class="postimgaddons" style="width:100%"><tbody><tr><td><span style="float:left;line-height: 1.8em;font-size:12px;">Rate this release:</span><div class="realm-rating-true"/></td><td style="float:right"><a href="${link}" target="_blank" rel="nofollow"><span class="genre-filters"><i class="fa fa-arrow-down" aria-hidden="true"></i> MP3 DOWNLOAD</span></a> <a href="#comments"><span class="genre-filters"><i class="fa fa-times" aria-hidden="true"></i> DEAD LINK</span></a> <span style="color:red;font-size:8px">NEW</span></td></tr></tbody></table><div class="clear"/></div>`;
+const newElement = `<div class="imgbelow" style="font-size:12px"><table class="postimgaddons" style="width:100%"><tbody><tr><td><span style="float:left;line-height: 1.8em;font-size:12px;">Rate this release:</span><div class="realm-rating-true"/></td><td style="float:right"><a href="${link}" target="_blank" rel="nofollow" title="MP3 DOWNLOAD"><span class="genre-filters"><i class="fa fa-cloud-download" aria-hidden="true"></i></span></a> <a href="#comments" title="ASK NEW LINK"><span class="genre-filters"><i class="fa fa-chain-broken" aria-hidden="true"></i></span></a> <a href="/p/report.html" title="REPORT DMCA"><span class="genre-filters"><i class="fa fa-flag" aria-hidden="true"></i></span></a></td></tr></tbody></table><div class="clear"/></div>`;
 separator.insertAdjacentHTML('afterend', newElement);};
 
 
