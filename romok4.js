@@ -76,24 +76,3 @@ $(document).ready(function() {
   });
 });
 
-// Change month on Upcoming Releases page
-if (window.location.href.indexOf('/p/upcoming-releases.html') !== -1) {
-window.onload = function() {
-const firstTab = document.querySelector(".tab-header li:nth-child(1)");
-const secondTab = document.querySelector(".tab-header li:nth-child(2)");
-const firstContent = document.querySelector("#vtab-0-0");
-const secondContent = document.querySelector("#vtab-0-1");
-
-firstTab.classList.remove("ui-tabs-active", "ui-state-active");
-firstTab.setAttribute("aria-selected", "false");
-firstTab.setAttribute("aria-expanded", "false");
-
-secondTab.classList.add("ui-tabs-active", "ui-state-active");
-secondTab.setAttribute("aria-selected", "true");
-secondTab.setAttribute("aria-expanded", "true");
-
-firstContent.style.display = "none";
-secondContent.style.removeProperty("display");
-
-};
-};
