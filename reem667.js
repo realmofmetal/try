@@ -23,22 +23,6 @@ $.each($("a[name]"), function(i, e) {
    });
 });
 
-// Run before all other link scripts
-if (!window.location.href.includes("/p/") && 
-    !window.location.href.includes("/2023/03/") && 
-    !window.location.href.includes("/2023/04/") && 
-    window.location.href !=="https://wow.realmofmetal.org/"){var _1bit=new _1bitspace({public_key:"hAvVrB9-",only:["mega.nz","mediafire.com","yadi.sk","zippyshare.com","rgho.st","workupload.com","dl.realmofmetal.org","dwld.realmofmetal.org","cloud.mail.ru"]})}
-
-// Find all external links and add attributes
-const links=document.querySelectorAll("a");
-links.forEach(link => {
-  if (link.hostname !== window.location.hostname && !link.href.startsWith("javascript:") && !link.href.includes("blogger.com") && !link.href.includes("googleusercontent.com") && !link.href.includes("blogspot.com") && !link.classList.contains("header-button") && !link.classList.contains("comment-reply") && !link.closest(".loadmore") && !link.classList.contains("clickfunc")) {
-    link.setAttribute("target", "_blank");
-    link.setAttribute("rel", "nofollow");
-	link.setAttribute("href", "http://anonymto.com/#" + link.href);
-  }
-});
-
 // Add rating system below post img
 if (!window.location.href.includes("/p/") && 
     !window.location.href.includes("discography") && 
